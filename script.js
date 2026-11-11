@@ -50,7 +50,8 @@
   var io = null;
   if (links.length && 'IntersectionObserver' in window) {
     var map = {};
-    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    // Each sidebar item covers one or more sections (data-sections), so any of them highlights it
+    links.forEach(function (a) { (a.getAttribute('data-sections') || a.getAttribute('href').slice(1)).split(' ').forEach(function (id) { map[id] = a; }); });
     io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {

@@ -372,3 +372,18 @@ html.star-cursor, html.star-cursor * { cursor: none !important; }
 .vault-copy { max-width: 62ch; }
 .vault-copy .security { display: inline; }
 @media (max-width: 700px) { .vault-copy br { display: none; } }
+
+/* Switch track shows both modes: the active one in the knob, the other faintly on the opposite side */
+.theme-toggle .t-sun, .theme-toggle .t-moon { position: absolute; top: 50%; width: 11px; height: 11px; margin-top: -5.5px; color: var(--ink); opacity: .4; transition: opacity .3s; pointer-events: none; }
+.theme-toggle .t-sun { left: 8px; }
+.theme-toggle .t-moon { right: 8px; }
+.theme-toggle[aria-checked="false"] .t-sun, .theme-toggle[aria-checked="true"] .t-moon { opacity: 0; }
+.theme-toggle[aria-checked="true"] .t-sun { color: #161513; opacity: .55; }
+.theme-toggle:hover .t-sun, .theme-toggle:hover .t-moon { opacity: .7; }
+.theme-toggle[aria-checked="false"]:hover .t-sun, .theme-toggle[aria-checked="true"]:hover .t-moon { opacity: 0; }
+.theme-toggle .knob { z-index: 1; }
+
+/* Animated previews on the home page */
+.card .thumb video { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; }
+.card:hover .thumb video { transform: scale(1.03); }
+.card .thumb video { transition: transform .7s cubic-bezier(.2,.7,.1,1); }
