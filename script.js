@@ -106,7 +106,7 @@
   if (!rows.length) return;
   function layout() {
     var hh = head ? head.offsetHeight : 0;
-    var peek = window.innerWidth < 700 ? 50 : 66;
+    var peek = window.innerWidth < 700 ? 64 : 66;
     var vh = window.innerHeight;
     var i = 0;
     rows.forEach(function (li) {
