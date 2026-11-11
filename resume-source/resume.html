@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jules Sampaio — Resume</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  /* Source for resume.pdf. Rebuild with: node resume-source/build.js */
+  @page { size: letter; margin: 0; }
+  :root {
+    --ink: #161513; --muted: #6b665c; --line: #dbd5c8; --accent: #c63b1e;
+    --display: "Instrument Serif", Georgia, serif;
+    --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; }
+  body { color: var(--ink); font: 400 8.75pt/1.36 var(--body); -webkit-font-smoothing: antialiased; font-synthesis-weight: none; }
+  .page { width: 8.5in; height: 11in; padding: 0.42in 0.55in 0.4in; display: flex; flex-direction: column; }
+  a { color: inherit; text-decoration: none; }
+  .label { font: 500 6.6pt/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+
+  header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 9pt; border-bottom: 1px solid var(--ink); }
+  .logo { display: block; height: 32pt; width: auto; margin-bottom: 6pt; }
+  h1 { font: 400 11.5pt/1.2 var(--body); margin: 0; color: var(--muted); }
+  h1 b { font-weight: 500; color: var(--ink); }
+  .contact { text-align: right; display: grid; gap: 2pt; text-transform: none; letter-spacing: .02em; font-size: 7.4pt; }
+  .contact a { border-bottom: 1px solid var(--line); }
+
+  section { display: grid; grid-template-columns: 1.02in 1fr; gap: 0 0.18in; padding: 7pt 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: 0; }
+  section > .label { color: var(--accent); padding-top: 2pt; }
+  p { margin: 0; }
+  .profile { font-size: 9.2pt; line-height: 1.4; }
+
+  .job { display: grid; grid-template-columns: 1.32in 1fr; gap: 0 0.18in; }
+  .job + .job { margin-top: 6pt; padding-top: 6pt; border-top: 1px dashed var(--line); }
+  .co { font: 400 13.5pt/1.05 var(--display); margin: 0 0 3pt; }
+  .when { color: var(--muted); }
+  .note { color: var(--muted); font-style: italic; margin-bottom: 3pt; }
+  .role { font-weight: 600; margin: 0 0 1pt; font-size: 9pt; }
+  .role + p, p + p { margin-top: 0; }
+  .role ~ .role { margin-top: 5pt; }
+  .stack p + p { margin-top: 2.5pt; }
+
+  .edu { display: grid; grid-template-columns: 1.32in 1fr; gap: 0 0.18in; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1pt 0.18in; }
+  .awards p + p { margin-top: 1pt; }
+  .awards b { font-weight: 600; }
+  footer { margin-top: auto; padding-top: 8pt; display: flex; justify-content: space-between; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <img class="logo" src="../images/logo.svg" alt="Jules Sampaio">
+      <h1><b>Jules Sampaio</b> · Senior Product Designer, New York</h1>
+    </div>
+    <div class="contact label">
+      <a href="https://www.julianasampaio.com">julianasampaio.com</a>
+      <a href="mailto:sampaiojuliana08@gmail.com">sampaiojuliana08@gmail.com</a>
+      <a href="tel:+19124412626">+1 (912) 441-2626</a>
+    </div>
+  </header>
+
+  <section>
+    <span class="label">Profile</span>
+    <p class="profile">Product designer with 6 years across B2B SaaS and fintech, shipping end to end at startup speed, from problem framing to production code. Built two design systems; prototype in Figma, SwiftUI, HTML/CSS, and AI tools.</p>
+  </section>
+
+  <section>
+    <span class="label">Experience</span>
+    <div>
+      <div class="job">
+        <div><p class="co">Credit Genie</p><p class="label when">Nov 2025 – Present<br>New York, NY</p></div>
+        <div class="stack">
+          <p class="note">Second design hire at a Series B fintech.</p>
+          <p class="role">Design Lead, Monyo</p>
+          <p>Lead end-to-end design of Monyo, a new standalone card app, across iOS, web, and Android, including password-free onboarding, card setup, and settings.</p>
+          <p>Use AI across the whole workflow to move faster: prototyping, iterating on flows, writing code, and QA’ing builds against designs.</p>
+          <p>Ship production SwiftUI code through GitHub, built the Monyo design system in 12 weeks, and built an AI skill so Claude designs and reviews screens on-system.</p>
+          <p class="role">Senior Product Designer</p>
+          <p>Led design of a $9.99 monthly membership that separated app access from bank connection, growing MAU from 600K to 700K+ and winning back ~100K dormant customers in 3 months. Drove ~$7M in advance origination and +$700K in advance revenue; 1 in 3 paywall viewers paid.</p>
+          <p>Designed multi-card support for up to 6 debit cards and built Credit Genie’s design system from Figma tokens to production code, setting the team’s design standards.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div><p class="co">Attentive</p><p class="label when">Jul 2020 – Nov 2025<br>New York, NY</p></div>
+        <div class="stack">
+          <p class="role">Product Designer</p>
+          <p>Redesigned the Creative Builder, the B2B tool brands use to build sign-up experiences, end to end: 55% less engineering workload, 67% less custom CSS, and 42% higher retention.</p>
+          <p>Designed AI sign-up optimization that lifted list growth 36% and welcome revenue 45%, gamified sign-up templates, and a GIF maker that reversed a two-year MMS decline.</p>
+          <p class="role">UI Design Manager</p>
+          <p>Led a team of 6 designers, creating templates, design standards, and an onboarding process that sped up turnaround on concurrent client deliverables.</p>
+          <p class="role">Lead UI Designer</p>
+          <p>Led international sign-up templates and pitch designs that helped win enterprise accounts like Starbucks, Macy’s, and Dollar General.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div><p class="co">Emperial 1002</p><p class="label when">Chicago, IL</p></div>
+        <div class="stack">
+          <p class="role">UI Designer, Contract</p>
+          <p>Designed client branding, posters, and websites, and managed junior designers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Education</span>
+    <div class="edu">
+      <div><p class="co">Savannah College of Art and Design</p><p class="label when">Savannah, Lacoste, Hong Kong</p></div>
+      <div><p class="role">BFA Graphic Design</p><p>Minor in Interaction Design</p><p>Summa Cum Laude</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Skills</span>
+    <div class="grid3">
+      <p>Product design</p><p>Figma (expert)</p><p>B2B SaaS, fintech, AI products</p>
+      <p>Design systems &amp; tokens</p><p>SwiftUI, GitHub</p><p>Cross-functional leadership</p>
+      <p>UX research</p><p>HTML / CSS</p><p>Mentoring</p>
+      <p>Prototyping</p><p>AI-assisted design &amp; prototyping</p><p>Fluent in Portuguese and Spanish</p>
+    </div>
+  </section>
+
+  <section class="awards">
+    <span class="label">Awards</span>
+    <div>
+      <p><b>Gold</b> · Indigo Awards, Mobile App</p>
+      <p><b>Honoree</b> · Core77 Design Awards</p>
+      <p><b>Honoree</b> · Fast Company World Changing Ideas</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
