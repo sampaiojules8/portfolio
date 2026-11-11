@@ -235,8 +235,9 @@ a { color: inherit; }
 .stats dd { margin: 10px 0 0; font-size: 15px; color: var(--muted); max-width: 26ch; }
 
 .steps { list-style: none; padding: 0 !important; counter-reset: st; display: grid; gap: 0; border-top: 1px solid var(--line); }
-.steps li { counter-increment: st; display: grid; grid-template-columns: 44px 1fr; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--line); margin: 0 !important; }
-.steps li::before { content: counter(st, decimal-leading-zero); font: 500 12px/2.2 var(--mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+.steps li { counter-increment: st; position: relative; padding: 14px 0 14px 52px; border-bottom: 1px solid var(--line); margin: 0 !important; }
+.steps li::before { content: counter(st, decimal-leading-zero); position: absolute; left: 0; top: 14px; font: 500 12px/1.6 var(--mono); padding-top: 3px; color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+.steps li strong { font-weight: 600; }
 .tbl { overflow-x: auto; margin: 24px 0; }
 .tbl table { border-collapse: collapse; width: 100%; font-size: 15px; min-width: 520px; }
 .tbl th { text-align: left; font-weight: 600; font-size: 13px; color: var(--muted); padding: 8px 12px 8px 0; border-bottom: 1px solid var(--ink); }
