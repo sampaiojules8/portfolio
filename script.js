@@ -22,6 +22,7 @@
     });
     buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.filter === filter)); });
     if (count) count.textContent = n;
+    document.dispatchEvent(new Event('work:filtered'));
   }
   buttons.forEach(function (b) {
     b.addEventListener('click', function () {
@@ -74,4 +75,55 @@
     start();
     if (reduce.addEventListener) reduce.addEventListener('change', start);
   });
+})();
+
+
+// Light / dark switch. Follows the system until the visitor picks; the choice is remembered.
+(function () {
+  var root = document.documentElement;
+  var btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  function isDark() { var t = root.dataset.theme; return t ? t === 'dark' : mq.matches; }
+  function sync() { btn.setAttribute('aria-checked', String(isDark())); }
+  btn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    function set() { root.dataset.theme = next; sync(); }
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (document.startViewTransition && !reduce) document.startViewTransition(set); else set();
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+  sync();
+})();
+
+// Home: project rows pile up as you scroll. Each row sticks just below the ones
+// before it, leaving their titles visible; a row never sticks so low that its
+// bottom is cut off, and rows taller than the screen simply scroll.
+(function () {
+  var rows = [].slice.call(document.querySelectorAll('.index > li'));
+  var head = document.querySelector('.site-head');
+  if (!rows.length) return;
+  function layout() {
+    var hh = head ? head.offsetHeight : 0;
+    var peek = window.innerWidth < 700 ? 50 : 66;
+    var vh = window.innerHeight;
+    var i = 0;
+    rows.forEach(function (li) {
+      if (li.hidden) return;
+      var h = li.offsetHeight;
+      var top = Math.min(hh + i * peek, vh - h);
+      if (top < hh) { li.classList.add('no-stick'); li.style.top = ''; }
+      else { li.classList.remove('no-stick'); li.style.top = top + 'px'; }
+      li.style.zIndex = String(i + 1);
+      i++;
+    });
+  }
+  var raf;
+  function schedule() { cancelAnimationFrame(raf); raf = requestAnimationFrame(layout); }
+  window.addEventListener('resize', schedule);
+  window.addEventListener('load', schedule);
+  document.addEventListener('work:filtered', schedule);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
+  layout();
 })();
