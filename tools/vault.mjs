@@ -44,9 +44,10 @@ const VAULT_RE = /<div class="vault"[^>]*>[\s\S]*?<script type="application\/oct
 function gate(data) {
   return `<div class="vault" data-salt="${SALT}" data-iter="${ITER}">
   <div class="vault-card">
+    <img class="guard" src="images/guard.webp" alt="My Italian greyhound, head of security, peering over a laptop" width="280" height="280" loading="lazy">
     <div class="vault-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><rect x="4" y="10" width="16" height="11" rx="3" fill="currentColor"/></svg></div>
     <h2 class="vault-title">The rest is behind the velvet rope.</h2>
-    <p class="vault-copy">Some of this work is still confidential, and my head of security, an Italian greyhound, takes that very seriously. Got the password? Come on in.</p>
+    <p class="vault-copy">Some of this work is still confidential, and <button type="button" class="security" aria-expanded="false">my head of security, an Italian greyhound,</button> takes that very seriously. Got the password? Come on in.</p>
     <form class="vault-form">
       <label class="sr-only" for="vault-pw">Password</label>
       <input id="vault-pw" name="password" type="password" placeholder="Password" autocomplete="off" autocapitalize="off" spellcheck="false" required>

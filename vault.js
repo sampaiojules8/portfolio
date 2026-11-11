@@ -66,6 +66,19 @@
     });
   }
 
+  // Easter egg: the head of security peeks out on hover, focus or tap, and after a wrong guess.
+  var guardTimer;
+  var sec = vault.querySelector('.security');
+  function peek(on) { vault.classList.toggle('peek', on); if (sec) sec.setAttribute('aria-expanded', String(on)); }
+  if (sec) {
+    sec.addEventListener('mouseenter', function () { clearTimeout(guardTimer); peek(true); });
+    sec.addEventListener('mouseleave', function () { peek(false); });
+    sec.addEventListener('focus', function () { peek(true); });
+    sec.addEventListener('blur', function () { peek(false); });
+    sec.addEventListener('click', function () { clearTimeout(guardTimer); peek(!vault.classList.contains('peek')); });
+  }
+  function alarm() { clearTimeout(guardTimer); peek(true); guardTimer = setTimeout(function () { peek(false); }, 2200); }
+
   if (!subtle) {
     msg.textContent = 'This browser can’t open the locked part. Try a current version of Chrome, Safari or Firefox, or email me.';
     form.querySelector('button').disabled = true;
@@ -81,6 +94,7 @@
     open(pw, true).catch(function () {
       msg.textContent = NOPES[Math.min(tries++, NOPES.length - 1)];
       vault.classList.remove('nope'); void vault.offsetWidth; vault.classList.add('nope');
+      alarm();
       input.select();
     }).then(function () { btn.disabled = false; });
   });

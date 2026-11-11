@@ -90,9 +90,29 @@ a { color: inherit; }
 
 /* home */
 .intro { padding: clamp(72px, 13vw, 168px) 0 clamp(64px, 11vw, 144px); text-align: center; }
-.intro h1 { font: 800 clamp(32px, 5.4vw, 80px)/1 var(--display); letter-spacing: -.025em; margin: 0; }
-.intro h1 span { display: block; }
-.intro h1 em { font-style: italic; }
+/* Hero: PP Pangaia, cycling Ultralight → Medium → Bold and back. Each line stacks
+   the three weights in one grid cell and crossfades between them. */
+@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-ultralight.woff2) format("woff2"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-medium.woff2) format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-bold.woff2) format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-ultralightitalic.woff2) format("woff2"); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-mediumitalic.woff2) format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-bolditalic.woff2) format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+.intro h1 { font: 200 clamp(36px, 7.4vw, 108px)/1.02 "PP Pangaia", Georgia, serif; letter-spacing: -.01em; margin: 0; display: flex; flex-direction: column; align-items: center; }
+.morph .line { display: inline-grid; justify-items: center; }
+.morph .line.italic { font-style: italic; }
+.morph .w { grid-area: 1 / 1; white-space: nowrap; animation: 7s cubic-bezier(.45,0,.55,1) infinite; }
+.morph .w1 { font-weight: 200; animation-name: morph-thin; }
+.morph .w2 { font-weight: 500; opacity: 0; animation-name: morph-mid; }
+.morph .w3 { font-weight: 700; opacity: 0; animation-name: morph-bold; }
+@keyframes morph-thin { 0%, 20% { opacity: 1; } 24%, 76% { opacity: 0; } 80%, 100% { opacity: 1; } }
+@keyframes morph-mid  { 0%, 20% { opacity: 0; } 24%, 36% { opacity: 1; } 40%, 60% { opacity: 0; } 64%, 76% { opacity: 1; } 80%, 100% { opacity: 0; } }
+@keyframes morph-bold { 0%, 36% { opacity: 0; } 40%, 60% { opacity: 1; } 64%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .morph .w { animation: none !important; }
+  .morph .w1, .morph .w3 { opacity: 0; }
+  .morph .w2 { opacity: 1; }
+}
 .hl { color: var(--hl-ink); background: linear-gradient(transparent 16%, var(--hl-bg) 16% 94%, transparent 94%); padding: 0 .08em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
 .work-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 0 0 18px; border-bottom: 1px solid var(--line); }
@@ -352,3 +372,14 @@ html.star-cursor, html.star-cursor * { cursor: none !important; }
 .vault.nope .vault-card { animation: vault-nope .45s cubic-bezier(.36,.07,.19,.97); }
 @keyframes vault-nope { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Easter egg: the head of security */
+.vault-card { position: relative; }
+.vault-copy .security { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit;
+  text-decoration: underline dotted var(--accent-ink) 1.5px; text-underline-offset: 4px; transition: color .2s; }
+.vault-copy .security:hover, .vault-copy .security:focus-visible, .vault.peek .security { color: var(--ink); text-decoration-style: solid; }
+.guard { position: absolute; z-index: 2; top: -88px; right: clamp(12px, 5vw, 56px); width: clamp(120px, 16vw, 168px); height: auto; pointer-events: none;
+  opacity: 0; transform: translateY(46px) rotate(-30deg) scale(.4); transform-origin: 50% 80%;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .35)); transition: transform .65s cubic-bezier(.3,1.55,.5,1), opacity .2s; }
+.vault.peek .guard { opacity: 1; transform: translateY(0) rotate(8deg) scale(1); }
+@media (prefers-reduced-motion: reduce) { .guard { transform: none; transition: opacity .2s; } }
