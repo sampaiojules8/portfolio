@@ -20,6 +20,7 @@ To lock another page, wrap the part to hide in those two markers, add
 
 ## Hidden pages
 
-`gamified-creatives.html` is hidden: no page links to it and search engines are asked
-not to list it. To show it again, restore its card in `index.html` and point the
-"next project" link in `ai-creatives.html` back to it.
+`gamified-creatives.html` and `gif-maker.html` are hidden: no page links to them and
+search engines are asked not to list them. To show one again, restore its card in
+`index.html` and point the "next project" link in `ai-creatives.html` back to it
+(the chain used to run AI creatives → Gamified creatives → GIF maker → Monyo design system).
