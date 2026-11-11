@@ -89,11 +89,11 @@ a { color: inherit; }
 .theme-toggle:hover .knob { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 45%, transparent); }
 
 /* home */
-.intro { padding: clamp(72px, 13vw, 168px) 0 clamp(64px, 11vw, 144px); text-align: center; }
+.intro { padding: 48px 0; min-height: calc(100svh - 72px); display: flex; align-items: center; justify-content: center; text-align: center; }
 /* PP Pangaia, used at Ultralight and Ultralight Italic everywhere. */
 @font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-ultralight.woff2) format("woff2"); font-weight: 200; font-style: normal; font-display: swap; }
 @font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-ultralightitalic.woff2) format("woff2"); font-weight: 200; font-style: italic; font-display: swap; }
-.intro h1 { font: 200 clamp(36px, 7.4vw, 108px)/1.02 "PP Pangaia", Georgia, serif; letter-spacing: -.01em; margin: 0; display: flex; flex-direction: column; align-items: center; }
+.intro h1 { font: 200 clamp(30px, 4.3vw, 62px)/1.04 "PP Pangaia", Georgia, serif; letter-spacing: -.01em; margin: 0; display: flex; flex-direction: column; align-items: center; }
 .morph { width: fit-content; margin: 0 auto !important; }
 .morph .line { display: block; white-space: nowrap; }
 .morph .line.italic { font-style: italic; }
@@ -237,6 +237,7 @@ a { color: inherit; }
   .about .portrait { max-width: 420px; }
 }
 @media (max-width: 700px) {
+  .intro { min-height: 0; padding: 72px 0 64px; }
   .card { grid-template-columns: 46px minmax(0, 1fr); padding-top: 12px; }
   .card .num { padding-top: 12px; }
   .card .name { font-size: 22px; }
