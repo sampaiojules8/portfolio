@@ -175,3 +175,49 @@
   document.addEventListener('pointerup', function () { star.classList.remove('down'); });
   document.documentElement.addEventListener('mouseleave', function () { star.classList.remove('on'); });
 })();
+
+
+// Hero: letters sit at Ultralight. When the cursor first touches the text, each
+// letter steps up to Medium then Bold, rippling outward from that point; leaving
+// the hero ripples them back. On touch screens a tap does the same.
+(function () {
+  var h = document.querySelector('.morph');
+  if (!h) return;
+  h.querySelectorAll('.line').forEach(function (line) {
+    var text = line.textContent; line.textContent = '';
+    Array.from(text).forEach(function (ch) {
+      var s = document.createElement('span'); s.className = 'c'; s.textContent = ch; line.appendChild(s);
+    });
+  });
+  var chars = [].slice.call(h.querySelectorAll('.c'));
+  var timers = [], on = false;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function ripple(x, y, bold) {
+    timers.forEach(clearTimeout); timers = []; on = bold;
+    var instant = reduce.matches, step = instant ? 0 : 110;
+    chars.forEach(function (c) {
+      var r = c.getBoundingClientRect();
+      var d = Math.hypot(r.left + r.width / 2 - x, r.top + r.height / 2 - y);
+      var delay = instant ? 0 : d * 0.85;
+      if (bold) {
+        timers.push(setTimeout(function () { c.classList.add('w5'); }, delay));
+        timers.push(setTimeout(function () { c.classList.remove('w5'); c.classList.add('w7'); }, delay + step));
+      } else {
+        timers.push(setTimeout(function () { c.classList.remove('w7'); c.classList.add('w5'); }, delay));
+        timers.push(setTimeout(function () { c.classList.remove('w5'); }, delay + step));
+      }
+    });
+  }
+  h.addEventListener('pointerover', function (e) {
+    if (e.pointerType !== 'mouse' || on || !e.target.closest('.line')) return;
+    ripple(e.clientX, e.clientY, true);
+  });
+  h.addEventListener('pointerleave', function (e) {
+    if (e.pointerType !== 'mouse' || !on) return;
+    ripple(e.clientX, e.clientY, false);
+  });
+  h.addEventListener('pointerup', function (e) {
+    if (e.pointerType === 'mouse') return;
+    ripple(e.clientX, e.clientY, !on);
+  });
+})();

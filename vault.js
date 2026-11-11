@@ -75,7 +75,8 @@
     sec.addEventListener('mouseleave', function () { peek(false); });
     sec.addEventListener('focus', function () { peek(true); });
     sec.addEventListener('blur', function () { peek(false); });
-    sec.addEventListener('click', function () { clearTimeout(guardTimer); peek(!vault.classList.contains('peek')); });
+    sec.addEventListener('click', function () { clearTimeout(guardTimer); peek(true); });
+    sec.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clearTimeout(guardTimer); peek(true); } });
   }
   function alarm() { clearTimeout(guardTimer); peek(true); guardTimer = setTimeout(function () { peek(false); }, 2200); }
 
