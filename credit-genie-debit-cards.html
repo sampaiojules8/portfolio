@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>multiple debit cards — Jules Sampaio</title>
+<meta name="description" content="multiple debit cards — a case study by Jules Sampaio, product designer.">
+<meta property="og:title" content="multiple debit cards — Jules Sampaio">
+<meta property="og:description" content="multiple debit cards — a case study by Jules Sampaio, product designer.">
+<meta property="og:image" content="images/og.png">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Instrument+Sans:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+  <a class="mark" href="index.html"><i aria-hidden="true"></i>jules sampaio</a>
+  <nav class="nav" aria-label="Main"><a href="index.html" aria-current="page">work</a><a href="about.html">about</a><a href="resume.pdf" class="hide-sm">resume</a><a href="mailto:sampaiojuliana08@gmail.com">contact</a></nav>
+</div></header>
+<main id="main">
+<div class="wrap">
+<header class="cs-top">
+  <a class="back" href="index.html"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>all work</a>
+  <h1 style="view-transition-name:t-credit-genie-debit-cards">multiple debit cards</h1>
+  <p class="lede">Letting members keep up to six debit cards on file, with a clear status system that decides what each card can do, so a bank disconnect no longer wipes out their best way to pay.</p>
+  <dl class="meta">
+    <div><dt>Company</dt><dd>credit genie</dd></div>
+    <div><dt>Role</dt><dd>lead product designer</dd></div>
+    <div><dt>Timeline</dt><dd>2026</dd></div>
+    <div><dt>Focus</dt><dd>payments, card management</dd></div>
+  </dl>
+</header>
+<div class="shot hero-shot" style="view-transition-name:img-credit-genie-debit-cards"><div class="ph" aria-hidden="true"><div><b>debit card screens</b><span>images/credit-genie-debit-cards/cover.jpg</span></div></div><img src="images/credit-genie-debit-cards/cover.jpg" alt="debit card screens" loading="eager" decoding="async"></div>
+<div class="cs-body">
+  <nav class="toc" aria-label="On this page"><ol><li><a href="#problem">The problem</a></li><li><a href="#statuses">The core idea: what can this card do?</a></li><li><a href="#adding">Adding a card</a></li><li><a href="#checkout">Choosing where the money goes</a></li><li><a href="#default">Default card</a></li><li><a href="#disconnect">When the bank disconnects</a></li><li><a href="#pay-now">Pay Now and failures</a></li><li><a href="#results">Results</a></li></ol></nav>
+  <article class="prose"><section id="problem"><h2>The problem</h2><p>Members could have only one debit card, and it was automatically removed when their bank disconnected, even if the card still worked. Debit card repayments succeed more often than bank transfers, so we were losing our most reliable payment method right when someone was least likely to repay. Members also couldn't switch cards for receiving an advance or paying one back.</p></section><section id="statuses"><h2>The core idea: what can this card do?</h2><p>Everything hangs on four statuses. The key split is between <strong>delivery</strong> (where an advance is sent) and <strong>payments</strong> (repayments, Pay Now, membership). Delivery stays restricted to well-verified cards while payments stay broad.</p><div class="tbl"><table><thead><tr><th scope="col">Status</th><th scope="col">What it passed</th><th scope="col">Receive advances</th><th scope="col">Make payments</th></tr></thead><tbody><tr><td>Verified</td><td>Card is tied to the user's bank and confirmed by transactions</td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td></tr><tr><td>Semi-verified</td><td>Card is tied to the bank; transaction match pending</td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td></tr><tr><td>Payments only</td><td>Valid card, but not tied to the linked bank</td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td></tr><tr><td>Unverified</td><td>Failed checks (for example, prepaid)</td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr></tbody></table></div><p>The same order drives everything: which card is the default, the order cards appear in, and which card we try first when collecting a payment.</p></section><section id="adding"><h2>Adding a card</h2><p>Members can add cards during onboarding, from their account, at checkout, or in Pay Now. The address is prefilled from their bank and editable. A new card is never rejected just because a verified card already exists; it's saved as payments-only instead. Every failure screen explains what happened in plain language and offers a next step.</p><figure class="real "><div class="shot"><div class="ph" aria-hidden="true"><div><b>Verifying, connecting, and success screens when adding a card</b></div></div><img src="images/credit-genie-debit-cards/add-card.jpg" alt="Verifying, connecting, and success screens when adding a card" loading="lazy" decoding="async"></div><figcaption>Verify, connect, success</figcaption></figure></section><section id="checkout"><h2>Choosing where the money goes</h2><p>At advance checkout, members with more than one eligible card choose where to receive it. Members without an eligible card are asked to add one linked to their bank, or, if they're already at six cards, to update one. Updating keeps the old card if the new one fails, and guards against replacing a healthy card while an advance is open.</p><figure class="real "><div class="shot"><div class="ph" aria-hidden="true"><div><b>Choosing a delivery card at checkout, a payments-only card notice, and the confirmation</b></div></div><img src="images/credit-genie-debit-cards/checkout.jpg" alt="Choosing a delivery card at checkout, a payments-only card notice, and the confirmation" loading="lazy" decoding="async"></div><figcaption>Pick a delivery card, handle a payments-only card, confirm</figcaption></figure></section><section id="default"><h2>Default card</h2><p>The default card is the one we charge first and the one Pay Now preselects. A new card becomes the default only if its status is better. Members can pick any card as default, up to three changes a month. If the default stops working, the next best card takes over automatically.</p><figure class="real "><div class="shot"><div class="ph" aria-hidden="true"><div><b>Managing a default card, explaining what a card is used for, success, and the change limit</b></div></div><img src="images/credit-genie-debit-cards/default-card.jpg" alt="Managing a default card, explaining what a card is used for, success, and the change limit" loading="lazy" decoding="async"></div><figcaption>Default card, what this card is used for, and the monthly change limit</figcaption></figure></section><section id="disconnect"><h2>When the bank disconnects</h2><p>Instead of deleting cards, a disconnect downgrades them to payments-only. When the member connects a bank again, we re-check those cards and restore them if they match. Expired cards update automatically where possible, with a notification either way.</p></section><section id="pay-now"><h2>Pay Now and failures</h2><p>Pay Now got a card picker with the default preselected, in-flow card entry, and a choice to save a new card or use it once. Disclosures update with the card and payment type. I designed a set of error states that each map to a specific cause, such as wrong CVV, unsupported card, or daily limit reached. Each one leads somewhere useful, and the fallback is never a blank screen.</p><figure class="real "><div class="shot"><div class="ph" aria-hidden="true"><div><b>Pay Now flow from home to choosing between two saved cards</b></div></div><img src="images/credit-genie-debit-cards/pay-now.jpg" alt="Pay Now flow from home to choosing between two saved cards" loading="lazy" decoding="async"></div><figcaption>Pay Now: from home to choosing between saved cards</figcaption></figure><figure class="real "><div class="shot"><div class="ph" aria-hidden="true"><div><b>Six debit card error dialogs, each with a next step</b></div></div><img src="images/credit-genie-debit-cards/errors.jpg" alt="Six debit card error dialogs, each with a next step" loading="lazy" decoding="async"></div><figcaption>Every error explains what happened and offers a next step</figcaption></figure></section><section id="results"><h2>Results</h2><p>We're rolling out in stages and tracking card add success, repayment success by card status, and how many members keep a card after their bank disconnects, which was previously zero.</p></section></article>
+</div>
+<a class="next" href="monyo-onboarding.html"><span>next project</span><strong>monyo onboarding<svg width="0.7em" height="0.7em" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></strong></a>
+</div>
+</main>
+<footer class="site-foot"><div class="wrap">
+  <div><p class="say">Let's make something together.</p>
+  <a href="mailto:sampaiojuliana08@gmail.com">sampaiojuliana08@gmail.com</a></div>
+  <div class="links"><a href="https://www.linkedin.com/in/julianasampaio8/">LinkedIn</a><a href="resume.pdf">Resume</a><span>© 2026 Jules Sampaio</span></div>
+</div></footer>
+<script src="script.js"></script>
+</body>
+</html>
