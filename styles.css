@@ -1,5 +1,5 @@
 /* Jules Sampaio — editorial system.
-   PP Pangaia for display (Bold for headings, Ultralight→Bold in the hero), Instrument Sans for reading, IBM Plex Mono for labels.
+   PP Pangaia Ultralight (and its italic) for display, Instrument Sans for reading, IBM Plex Mono for labels.
    Dark is the default theme; the header switch sets data-theme on <html>.
    Warm paper, near-black ink, one lime accent (#d1e030).
    --accent is a fill color; --accent-ink is the readable text version of it. */
@@ -90,21 +90,13 @@ a { color: inherit; }
 
 /* home */
 .intro { padding: clamp(72px, 13vw, 168px) 0 clamp(64px, 11vw, 144px); text-align: center; }
-/* PP Pangaia. The hero sits at Ultralight; hovering it ripples each letter up to
-   Medium then Bold, outward from where the cursor first touched (script.js). */
+/* PP Pangaia, used at Ultralight and Ultralight Italic everywhere. */
 @font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-ultralight.woff2) format("woff2"); font-weight: 200; font-style: normal; font-display: swap; }
-@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-medium.woff2) format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-bold.woff2) format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
 @font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-ultralightitalic.woff2) format("woff2"); font-weight: 200; font-style: italic; font-display: swap; }
-@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-mediumitalic.woff2) format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
-@font-face { font-family: "PP Pangaia"; src: url(fonts/pp-pangaia-bolditalic.woff2) format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
 .intro h1 { font: 200 clamp(36px, 7.4vw, 108px)/1.02 "PP Pangaia", Georgia, serif; letter-spacing: -.01em; margin: 0; display: flex; flex-direction: column; align-items: center; }
 .morph { width: fit-content; margin: 0 auto !important; }
 .morph .line { display: block; white-space: nowrap; }
 .morph .line.italic { font-style: italic; }
-.morph .c { font-weight: 200; }
-.morph .c.w5 { font-weight: 500; }
-.morph .c.w7 { font-weight: 700; }
 .hl { color: var(--hl-ink); background: linear-gradient(transparent 16%, var(--hl-bg) 16% 94%, transparent 94%); padding: 0 .08em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
 .work-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 0 0 18px; border-bottom: 1px solid var(--line); }
@@ -126,7 +118,7 @@ a { color: inherit; }
 .card .num::before { content: counter(work, decimal-leading-zero); }
 .card .num .new { order: 1; }
 .card .text { display: flex; flex-direction: column; min-width: 0; }
-.card .name { font: 700 clamp(24px, 2.2vw, 32px)/1.1 var(--display); letter-spacing: -.02em; margin: 0; padding-top: 4px; }
+.card .name { font: 200 clamp(24px, 2.2vw, 32px)/1.1 var(--display); letter-spacing: -.01em; margin: 0; padding-top: 4px; }
 .card .name span { background-image: linear-gradient(var(--accent-ink), var(--accent-ink)); background-size: 0% 3px; background-position: 0 100%; background-repeat: no-repeat; padding-bottom: 4px; transition: background-size .45s cubic-bezier(.2,.7,.1,1); }
 .card:hover .name span, .card:focus-visible .name span { background-size: 100% 3px; }
 .card .desc { margin: 18px 0 0; font-size: 16.5px; line-height: 1.5; max-width: 44ch; }
@@ -152,7 +144,7 @@ a { color: inherit; }
 .back:hover { color: var(--ink); }
 .back svg { transition: transform .2s; }
 .back:hover svg { transform: translateX(-3px); }
-.cs-top h1 { font: 700 clamp(40px, 6.4vw, 96px)/1 var(--display); letter-spacing: -.03em; margin: 28px 0 0; text-wrap: balance; width: fit-content; }
+.cs-top h1 { font: 200 clamp(40px, 6.4vw, 96px)/1 var(--display); letter-spacing: -.015em; margin: 28px 0 0; text-wrap: balance; width: fit-content; }
 .cs-top .lede { font-size: clamp(19px, 1.8vw, 23px); line-height: 1.45; max-width: 46ch; margin: 24px 0 0; text-wrap: pretty; }
 .meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: clamp(32px, 5vw, 56px) 0 0; padding: 20px 0 0; border-top: 1px solid var(--line); }
 .meta div { min-width: 0; }
@@ -169,7 +161,7 @@ a { color: inherit; }
 .prose { max-width: 720px; }
 .prose section { scroll-margin-top: 96px; }
 .prose section + section { margin-top: clamp(56px, 7vw, 88px); }
-.prose h2 { font: 700 clamp(28px, 2.8vw, 38px)/1.1 var(--display); letter-spacing: -.02em; margin: 0 0 18px; text-wrap: balance; }
+.prose h2 { font: 200 clamp(28px, 2.8vw, 38px)/1.1 var(--display); letter-spacing: -.01em; margin: 0 0 18px; text-wrap: balance; }
 .prose h3 { font: 600 18px/1.3 var(--body); margin: 32px 0 6px; }
 .prose p { margin: 0 0 16px; max-width: 65ch; }
 .prose ul { margin: 0 0 16px; padding-left: 20px; max-width: 65ch; }
@@ -190,7 +182,7 @@ a { color: inherit; }
 .values { list-style: none; padding: 0 !important; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
 .values li { margin: 0; }
 .values .shot { aspect-ratio: 1; margin-bottom: 10px; }
-.values strong { font: 700 22px/1.15 var(--display); letter-spacing: -.01em; }
+.values strong { font: 200 22px/1.15 var(--display); letter-spacing: -.005em; }
 .values span { display: block; color: var(--muted); font-size: 15px; }
 
 .todo { background: var(--todo); border: 1px dashed var(--todo-line); border-radius: 8px; padding: 10px 14px; font-size: 15px; }
@@ -199,12 +191,12 @@ a { color: inherit; }
 
 .next { display: block; text-decoration: none; border-top: 1px solid var(--ink); padding: 28px 0 clamp(56px, 8vw, 96px); }
 .next span { font: 500 11.5px/1.5 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.next strong { display: flex; align-items: center; gap: 18px; font: 700 clamp(36px, 5.6vw, 76px)/1.02 var(--display); letter-spacing: -.03em; margin-top: 10px; transition: gap .3s cubic-bezier(.2,.7,.1,1), color .2s; }
+.next strong { display: flex; align-items: center; gap: 18px; font: 200 clamp(36px, 5.6vw, 76px)/1.02 var(--display); letter-spacing: -.015em; margin-top: 10px; transition: gap .3s cubic-bezier(.2,.7,.1,1), color .2s; }
 .next:hover strong { gap: 30px; color: var(--accent-ink); }
 
 /* about */
 .about { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); padding: clamp(48px, 8vw, 104px) 0 clamp(64px, 10vw, 120px); align-items: start; }
-.about h1 { font: 700 clamp(36px, 4.2vw, 56px)/1.05 var(--display); letter-spacing: -.025em; margin: 0 0 28px; text-wrap: balance; }
+.about h1 { font: 200 clamp(36px, 4.2vw, 56px)/1.05 var(--display); letter-spacing: -.01em; margin: 0 0 28px; text-wrap: balance; }
 .about h1 em { color: var(--hl-ink); background: linear-gradient(transparent 16%, var(--hl-bg) 16% 94%, transparent 94%); padding: 0 .08em; }
 .about p { max-width: 58ch; margin: 0 0 16px; font-size: 18px; }
 .about .portrait { aspect-ratio: 4/5; border-radius: 8px; }
@@ -221,7 +213,7 @@ a { color: inherit; }
 
 /* footer */
 .site-foot { border-top: 1px solid var(--line); padding: clamp(48px, 7vw, 88px) 0 40px; }
-.site-foot .say { font: 700 clamp(38px, 5.4vw, 72px)/1.02 var(--display); letter-spacing: -.03em; margin: 0 0 clamp(36px, 5vw, 56px); }
+.site-foot .say { font: 200 clamp(38px, 5.4vw, 72px)/1.02 var(--display); letter-spacing: -.015em; margin: 0 0 clamp(36px, 5vw, 56px); }
 .site-foot .say em { color: var(--hl-ink); background: linear-gradient(transparent 16%, var(--hl-bg) 16% 94%, transparent 94%); padding: 0 .08em; }
 .foot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 24px; padding-top: 20px; border-top: 1px solid var(--line); align-items: start; }
 .foot-grid .label { color: var(--muted); display: block; margin-bottom: 6px; }
@@ -267,7 +259,7 @@ a { color: inherit; }
 
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; margin: 8px 0 0; border-top: 1px solid var(--ink); }
 .stats div { padding: 20px 20px 4px 0; }
-.stats dt { font: 700 clamp(40px, 5vw, 68px)/1 var(--display); letter-spacing: -.03em; color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+.stats dt { font: 200 clamp(40px, 5vw, 68px)/1 var(--display); letter-spacing: -.015em; color: var(--accent-ink); font-variant-numeric: tabular-nums; }
 .stats dd { margin: 10px 0 0; font-size: 15px; color: var(--muted); max-width: 26ch; }
 
 .steps { list-style: none; padding: 0 !important; counter-reset: st; display: grid; gap: 0; border-top: 1px solid var(--line); }
@@ -290,7 +282,7 @@ a { color: inherit; }
 .layers div { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
 .layers div:nth-child(2) { margin-left: 24px; border-color: var(--accent); }
 .layers div:nth-child(3) { margin-left: 48px; }
-.layers b { font: 700 20px/1.2 var(--display); letter-spacing: -.01em; }
+.layers b { font: 200 20px/1.2 var(--display); letter-spacing: -.005em; }
 .layers span { color: var(--muted); font-size: 15px; }
 .swatches { list-style: none; padding: 0 !important; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin: 24px 0; }
 .swatches li { margin: 0; font-size: 13px; }
@@ -351,7 +343,7 @@ html.star-cursor, html.star-cursor * { cursor: none !important; }
 .vault-card { background: var(--wash); border: 1px solid var(--line); border-radius: 20px; padding: clamp(28px, 5vw, 56px); }
 .vault-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #161513; display: grid; place-items: center; margin-bottom: 28px; }
 .vault-icon svg { width: 26px; height: 26px; }
-.vault-title { font: 700 clamp(28px, 2.8vw, 38px)/1.1 var(--display); letter-spacing: -.02em; margin: 0 0 12px; overflow-wrap: break-word; }
+.vault-title { font: 200 clamp(28px, 2.8vw, 38px)/1.1 var(--display); letter-spacing: -.01em; margin: 0 0 12px; overflow-wrap: break-word; }
 .vault-copy { color: var(--muted); max-width: 52ch; margin: 0 0 28px; }
 .vault-form { display: flex; gap: 10px; flex-wrap: wrap; max-width: 520px; }
 .vault-form input { flex: 1 1 220px; min-width: 0; font: 400 16px/1 var(--body); color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 14px 20px; }
