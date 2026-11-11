@@ -127,3 +127,31 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(schedule);
   layout();
 })();
+
+
+// ✦ cursor. Mouse users only: it follows the pointer, and over anything clickable
+// it turns a quarter, grows a little and goes green.
+(function () {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var star = document.createElement('div');
+  star.className = 'star';
+  star.setAttribute('aria-hidden', 'true');
+  star.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 1.5c.9 5.6 4.9 9.6 10.5 10.5-5.6.9-9.6 4.9-10.5 10.5C11.1 16.9 7.1 12.9 1.5 12 7.1 11.1 11.1 7.1 12 1.5z"/></svg>';
+  document.body.appendChild(star);
+  document.documentElement.classList.add('star-cursor');
+  var CLICKABLE = 'a[href], button, [role="button"], [role="switch"], label, summary, select, input, textarea';
+  var x = 0, y = 0, raf;
+  function draw() { raf = 0; star.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)'; }
+  document.addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    x = e.clientX; y = e.clientY;
+    star.classList.add('on');
+    if (!raf) raf = requestAnimationFrame(draw);
+  }, { passive: true });
+  document.addEventListener('pointerover', function (e) {
+    star.classList.toggle('hot', !!(e.target.closest && e.target.closest(CLICKABLE)));
+  });
+  document.addEventListener('pointerdown', function () { star.classList.add('down'); });
+  document.addEventListener('pointerup', function () { star.classList.remove('down'); });
+  document.documentElement.addEventListener('mouseleave', function () { star.classList.remove('on'); });
+})();

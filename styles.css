@@ -1,5 +1,6 @@
 /* Jules Sampaio — editorial system.
-   Instrument Serif for display, Instrument Sans for reading, IBM Plex Mono for labels.
+   Instrument Serif for display, Syne ExtraBold for reading, IBM Plex Mono for labels.
+   Dark is the default theme; the header switch sets data-theme on <html>.
    Warm paper, near-black ink, one lime accent (#d1e030).
    --accent is a fill color; --accent-ink is the readable text version of it. */
 :root {
@@ -16,7 +17,7 @@
   --todo: #fff3c4;
   --todo-line: #d9b528;
   --display: "Instrument Serif", "Times New Roman", Georgia, serif;
-  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --body: "Syne", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   --gutter: clamp(16px, 4vw, 48px);
   --max: 1320px;
@@ -49,7 +50,7 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--paper); color: var(--ink);
-  font: 400 17px/1.6 var(--body);
+  font: 800 16px/1.65 var(--body);
   -webkit-font-smoothing: antialiased;
   font-synthesis-weight: none;
 }
@@ -113,8 +114,8 @@ a { color: inherit; }
 .card .num::before { content: counter(work, decimal-leading-zero); }
 .card .text { display: flex; flex-direction: column; min-width: 0; }
 .card .name { font: 400 clamp(32px, 3.3vw, 46px)/1.05 var(--display); letter-spacing: -.01em; margin: 0; }
-.card .name span { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 100%; background-repeat: no-repeat; transition: background-size .45s cubic-bezier(.2,.7,.1,1), color .2s; }
-.card:hover .name span, .card:focus-visible .name span { background-size: 100% 100%; color: #161513; }
+.card .name span { background-image: linear-gradient(var(--accent-ink), var(--accent-ink)); background-size: 0% 3px; background-position: 0 100%; background-repeat: no-repeat; padding-bottom: 4px; transition: background-size .45s cubic-bezier(.2,.7,.1,1); }
+.card:hover .name span, .card:focus-visible .name span { background-size: 100% 3px; }
 .card .desc { margin: 18px 0 0; font-size: 16.5px; line-height: 1.5; max-width: 44ch; }
 .card .who { margin: auto 0 0; padding-top: 24px; color: var(--muted); line-height: 1.7; }
 .card .who b { display: block; font-weight: 500; color: var(--ink); }
@@ -315,3 +316,14 @@ video.splash-video.done { opacity: 0; }
 .video-hero { background: #19181c; }
 .video-hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (forced-colors: active) { .logo { background: CanvasText; } }
+
+/* ✦ cursor: only for mouse users, switched on by script.js */
+html.star-cursor, html.star-cursor * { cursor: none !important; }
+.star { position: fixed; left: 0; top: 0; z-index: 1000; width: 22px; height: 22px; margin: -11px 0 0 -11px; pointer-events: none; opacity: 0; transition: opacity .2s; will-change: transform; }
+.star.on { opacity: 1; }
+.star svg { display: block; width: 100%; height: 100%; color: var(--ink); transition: transform .45s cubic-bezier(.3,1.4,.5,1), color .2s; }
+.star svg path { fill: currentColor; stroke: var(--paper); stroke-width: 1.4; paint-order: stroke; }
+.star.hot svg { color: var(--accent); transform: rotate(90deg) scale(1.4); }
+.star.hot svg path { stroke: #161513; }
+.star.down svg { transform: rotate(90deg) scale(1.15); }
+@media (prefers-reduced-motion: reduce) { .star.hot svg { transform: scale(1.4); } .star.down svg { transform: scale(1.15); } }
