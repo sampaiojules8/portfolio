@@ -7,81 +7,95 @@
 <meta name="description" content="Senior product designer in New York creating engaging, user-centric digital experiences.">
 <meta property="og:title" content="Jules Sampaio — Product Designer">
 <meta property="og:description" content="Senior product designer in New York creating engaging, user-centric digital experiences.">
-<meta property="og:image" content="images/og.png">
-<link rel="icon" href="images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Instrument+Sans:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
+<meta property="og:image" content="https://www.julianasampaio.com/images/og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#f4f1ea">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap">
-  <a class="mark" href="index.html"><i aria-hidden="true"></i>jules sampaio</a>
-  <nav class="nav" aria-label="Main"><a href="index.html" aria-current="page">work</a><a href="about.html">about</a><a href="resume.pdf" class="hide-sm">resume</a><a href="mailto:sampaiojuliana08@gmail.com">contact</a></nav>
+  <a class="mark" href="index.html" aria-label="Jules Sampaio, home"><i aria-hidden="true">js</i><span>Jules Sampaio</span></a>
+  <p class="head-meta label">Product designer · New York</p>
+  <nav class="nav" aria-label="Main"><a href="index.html" aria-current="page">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank" rel="noopener" class="hide-sm">Resume<span class="ext" aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/julianasampaio8/" target="_blank" rel="noopener" class="hide-sm">LinkedIn<span class="ext" aria-hidden="true">↗</span></a><a href="mailto:sampaiojuliana08@gmail.com">Contact</a></nav>
 </div></header>
 <main id="main">
 <div class="wrap">
 <section class="intro">
-  <h1>Hi! I'm Jules, a product designer creating engaging, user-centric digital experiences that foster connections.</h1>
-  <p>Product designer at Credit Genie and design lead on Monyo, building design systems from Figma tokens to production code. Previously five years at Attentive.</p>
+  <h1>Hi! I'm Jules, a product designer creating engaging, user-centric digital experiences that <em>foster connections.</em></h1>
+  <div class="intro-facts">
+    <div><span class="label">Now</span><p>Product designer at Credit Genie, design lead on Monyo</p></div>
+    <div><span class="label">Before</span><p>Five years at Attentive, from visual designer to design manager</p></div>
+    <div><span class="label">Craft</span><p>Design systems, from Figma tokens to production code</p></div>
+    <div class="btns"><a class="btn solid" href="resume.pdf" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true">↗</span></a><a class="btn" href="https://www.linkedin.com/in/julianasampaio8/" target="_blank" rel="noopener">LinkedIn<span class="ext" aria-hidden="true">↗</span></a></div>
+  </div>
 </section>
-<div class="work-head"><h2>selected work<span data-count>8</span></h2><div class="filters" role="group" aria-label="Filter by company"><button type="button" data-filter="all" aria-pressed="true">all</button><button type="button" data-filter="credit genie" aria-pressed="false">credit genie</button><button type="button" data-filter="monyo" aria-pressed="false">monyo</button><button type="button" data-filter="attentive" aria-pressed="false">attentive</button></div></div>
+<div class="work-head"><h2>/ Selected work<span data-count>8</span></h2><div class="filters" role="group" aria-label="Filter by company"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="credit genie" aria-pressed="false">Credit Genie</button><button type="button" data-filter="monyo" aria-pressed="false">Monyo</button><button type="button" data-filter="attentive" aria-pressed="false">Attentive</button></div></div>
 <ul class="index">
-<li data-company="credit genie"><a class="row" href="credit-genie-membership.html">
+<li data-company="credit genie"><a class="card" href="credit-genie-membership.html">
   <div class="thumb"><div class="shot " style="view-transition-name:img-credit-genie-membership"><div class="ph" aria-hidden="true"><div><b>membership paywall screens</b><span>images/credit-genie-membership/cover.jpg</span></div></div><img src="images/credit-genie-membership/cover.jpg" alt="membership paywall screens" loading="eager" decoding="async"></div></div>
-  <div class="name"><span style="view-transition-name:t-credit-genie-membership">credit genie membership</span><span class="new">new</span></div>
-  <div class="cell">credit genie</div>
-  <div class="cell role">lead product designer</div>
-  <div class="cell years">2026</div>
-</a></li><li data-company="credit genie"><a class="row" href="credit-genie-debit-cards.html">
+  <div class="top"><h3 class="name"><span style="view-transition-name:t-credit-genie-membership">Credit genie membership</span><span class="new">New</span></h3><span class="num label">2026</span></div>
+  <p class="desc">A $9.99 membership that replaced a biweekly fee, so app access no longer depends on a live bank connection.</p>
+  <p class="who label">credit genie · lead product designer</p>
+</a></li>
+<li data-company="credit genie"><a class="card" href="credit-genie-debit-cards.html">
   <div class="thumb"><div class="shot " style="view-transition-name:img-credit-genie-debit-cards"><div class="ph" aria-hidden="true"><div><b>debit card screens</b><span>images/credit-genie-debit-cards/cover.jpg</span></div></div><img src="images/credit-genie-debit-cards/cover.jpg" alt="debit card screens" loading="eager" decoding="async"></div></div>
-  <div class="name"><span style="view-transition-name:t-credit-genie-debit-cards">multiple debit cards</span><span class="new">new</span></div>
-  <div class="cell">credit genie</div>
-  <div class="cell role">lead product designer</div>
-  <div class="cell years">2026</div>
-</a></li><li data-company="monyo"><a class="row" href="monyo-onboarding.html">
+  <div class="top"><h3 class="name"><span style="view-transition-name:t-credit-genie-debit-cards">Multiple debit cards</span><span class="new">New</span></h3><span class="num label">2026</span></div>
+  <p class="desc">Up to six debit cards on file, with a status system that decides what each card can do.</p>
+  <p class="who label">credit genie · lead product designer</p>
+</a></li>
+<li data-company="monyo"><a class="card" href="monyo-onboarding.html">
   <div class="thumb"><div class="shot " style="view-transition-name:img-monyo-onboarding"><div class="ph" aria-hidden="true"><div><b>Monyo onboarding screens</b><span>images/monyo-onboarding/cover-screens.jpg</span></div></div><img src="images/monyo-onboarding/cover-screens.jpg" alt="Monyo onboarding screens" loading="eager" decoding="async"></div></div>
-  <div class="name"><span style="view-transition-name:t-monyo-onboarding">monyo onboarding</span><span class="new">new</span></div>
-  <div class="cell">monyo</div>
-  <div class="cell role">lead product designer</div>
-  <div class="cell years">2026</div>
-</a></li><li data-company="monyo"><a class="row" href="monyo-design-system.html">
+  <div class="top"><h3 class="name"><span style="view-transition-name:t-monyo-onboarding">Monyo onboarding</span><span class="new">New</span></h3><span class="num label">2026</span></div>
+  <p class="desc">From download to an active card in a few required steps, with no passwords.</p>
+  <p class="who label">monyo · lead product designer</p>
+</a></li>
+<li data-company="monyo"><a class="card" href="monyo-design-system.html">
   <div class="thumb"><div class="shot " style="view-transition-name:img-monyo-design-system"><div class="ph" aria-hidden="true"><div><b>Monyo brand and design system</b><span>images/monyo-design-system/cover.jpg</span></div></div><img src="images/monyo-design-system/cover.jpg" alt="Monyo brand and design system" loading="eager" decoding="async"></div></div>
-  <div class="name"><span style="view-transition-name:t-monyo-design-system">monyo design system</span><span class="new">new</span></div>
-  <div class="cell">monyo</div>
-  <div class="cell role">design system lead, sole designer</div>
-  <div class="cell years">12 weeks, 2026</div>
-</a></li><li data-company="attentive"><a class="row" href="cb3.html">
+  <div class="top"><h3 class="name"><span style="view-transition-name:t-monyo-design-system">Monyo design system</span><span class="new">New</span></h3><span class="num label">12 weeks, 2026</span></div>
+  <p class="desc">The design system the whole Monyo app runs on, designed and shipped solo in 12 weeks.</p>
+  <p class="who label">monyo · design system lead, sole designer</p>
+</a></li>
+<li data-company="attentive"><a class="card" href="cb3.html">
   <div class="thumb"><div class="shot " style="view-transition-name:img-cb3"><div class="ph" aria-hidden="true"><div><b>attentive builder</b><span>images/cb3/hero.jpg</span></div></div><img src="images/cb3/hero.jpg" alt="attentive builder" loading="eager" decoding="async"></div></div>
-  <div class="name"><span style="view-transition-name:t-cb3">attentive builder</span></div>
-  <div class="cell">attentive</div>
-  <div class="cell role">lead product designer</div>
-  <div class="cell years">sept 2023 – present</div>
-</a></li><li data-company="attentive"><a class="row" href="ai-creatives.html">
+  <div class="top"><h3 class="name"><span style="view-transition-name:t-cb3">Attentive builder</span></h3><span class="num label">2023–24</span></div>
+  <p class="desc">A redesigned self-serve builder for SMS and email sign-up units, with far less engineering help.</p>
+  <p class="who label">attentive · lead product designer</p>
+</a></li>
+<li data-company="attentive"><a class="card" href="ai-creatives.html">
   <div class="thumb"><div class="shot " style="view-transition-name:img-ai-creatives"><div class="ph" aria-hidden="true"><div><b>AI creatives</b><span>images/ai-creatives/hero.jpg</span></div></div><img src="images/ai-creatives/hero.jpg" alt="AI creatives" loading="eager" decoding="async"></div></div>
-  <div class="name"><span style="view-transition-name:t-ai-creatives">AI creatives</span></div>
-  <div class="cell">attentive</div>
-  <div class="cell role">lead product designer</div>
-  <div class="cell years">jul 2023 – present</div>
-</a></li><li data-company="attentive"><a class="row" href="gamified-creatives.html">
+  <div class="top"><h3 class="name"><span style="view-transition-name:t-ai-creatives">AI creatives</span></h3><span class="num label">2023–24</span></div>
+  <p class="desc">AI that picks the timing, placement, layout and incentive for every sign-up unit.</p>
+  <p class="who label">attentive · lead product designer</p>
+</a></li>
+<li data-company="attentive"><a class="card" href="gamified-creatives.html">
   <div class="thumb"><div class="shot " style="view-transition-name:img-gamified-creatives"><div class="ph" aria-hidden="true"><div><b>gamified creatives</b><span>images/gamified-creatives/cover.jpg</span></div></div><img src="images/gamified-creatives/cover.jpg" alt="gamified creatives" loading="eager" decoding="async"></div></div>
-  <div class="name"><span style="view-transition-name:t-gamified-creatives">gamified creatives</span></div>
-  <div class="cell">attentive</div>
-  <div class="cell role">lead product designer</div>
-  <div class="cell years">oct 2023 – present</div>
-</a></li><li data-company="attentive"><a class="row" href="gif-maker.html">
+  <div class="top"><h3 class="name"><span style="view-transition-name:t-gamified-creatives">Gamified creatives</span></h3><span class="num label">2023–24</span></div>
+  <p class="desc">Game-like sign-up templates that turn joining a brand's list into a small moment of play.</p>
+  <p class="who label">attentive · lead product designer</p>
+</a></li>
+<li data-company="attentive"><a class="card" href="gif-maker.html">
   <div class="thumb"><div class="shot " style="view-transition-name:img-gif-maker"><div class="ph" aria-hidden="true"><div><b>GIF maker</b><span>images/gif-maker/hero.jpg</span></div></div><img src="images/gif-maker/hero.jpg" alt="GIF maker" loading="eager" decoding="async"></div></div>
-  <div class="name"><span style="view-transition-name:t-gif-maker">GIF maker</span></div>
-  <div class="cell">attentive</div>
-  <div class="cell role">lead product designer</div>
-  <div class="cell years">jan – mar 2024</div>
+  <div class="top"><h3 class="name"><span style="view-transition-name:t-gif-maker">GIF maker</span></h3><span class="num label">2024</span></div>
+  <p class="desc">An in-platform GIF, image and video maker that reversed a decline in MMS sends.</p>
+  <p class="who label">attentive · lead product designer</p>
 </a></li>
 </ul>
 </div>
 </main>
 <footer class="site-foot"><div class="wrap">
-  <div><p class="say">Let's make something together.</p>
-  <a href="mailto:sampaiojuliana08@gmail.com">sampaiojuliana08@gmail.com</a></div>
-  <div class="links"><a href="https://www.linkedin.com/in/julianasampaio8/">LinkedIn</a><a href="resume.pdf">Resume</a><span>© 2026 Jules Sampaio</span></div>
+  <p class="say">Let's make something <em>together.</em></p>
+  <div class="foot-grid">
+    <div><span class="label">Email</span><p><a href="mailto:sampaiojuliana08@gmail.com">sampaiojuliana08@gmail.com</a></p></div>
+    <div><span class="label">Elsewhere</span><p><a href="https://www.linkedin.com/in/julianasampaio8/" target="_blank" rel="noopener">LinkedIn<span class="ext" aria-hidden="true">↗</span></a><a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)<span class="ext" aria-hidden="true">↗</span></a></p></div>
+    <div><span class="label">Based in</span><p>New York City</p></div>
+    <span class="label copy">© 2026 Jules Sampaio</span>
+  </div>
 </div></footer>
 <script src="script.js"></script>
 </body>
