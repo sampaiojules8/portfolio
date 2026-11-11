@@ -396,3 +396,4 @@ html.star-cursor, html.star-cursor * { cursor: none !important; }
 .prose section > :is(figure, .tbl, .layers, .pairs, .swatches, .steps, .stats, .spacing) { margin-top: 32px; margin-bottom: 32px; }
 .prose section > h2 + * { margin-top: 0 !important; }
 .prose section > :last-child { margin-bottom: 0; }
+.real.centered.tall .shot img { max-height: 960px; }
