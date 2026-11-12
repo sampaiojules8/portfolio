@@ -407,3 +407,5 @@ html.star-cursor, html.star-cursor * { cursor: none !important; }
 .vault-eye .eye-shut { display: none; }
 .vault-eye[aria-pressed="true"] .eye-open { display: none; }
 .vault-eye[aria-pressed="true"] .eye-shut { display: block; }
+.phone-grid.wrap.cols-3 .ph-item { flex-basis: calc((100% - 36px) / 3); }
+@media (max-width: 640px) { .phone-grid.wrap.cols-3 .ph-item { flex-basis: calc((100% - 12px) / 2); } }
