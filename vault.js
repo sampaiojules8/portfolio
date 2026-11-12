@@ -82,22 +82,38 @@
 
   if (!subtle) {
     msg.textContent = 'This browser can’t open the locked part. Try a current version of Chrome, Safari or Firefox, or email me.';
-    form.querySelector('button').disabled = true;
+    form.querySelector('button[type="submit"]').disabled = true;
     return;
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  var busy = false;
+  function attempt() {
     var pw = input.value;
-    if (!norm(pw)) return;
-    var btn = form.querySelector('button');
+    if (busy || !norm(pw)) { if (!norm(pw)) input.focus(); return; }
+    busy = true;
+    var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true; msg.textContent = 'Checking the list…';
     open(pw, true).catch(function () {
       msg.textContent = NOPES[Math.min(tries++, NOPES.length - 1)];
       vault.classList.remove('nope'); void vault.offsetWidth; vault.classList.add('nope');
       alarm();
       input.select();
-    }).then(function () { btn.disabled = false; });
+    }).then(function () { btn.disabled = false; busy = false; });
+  }
+  form.addEventListener('submit', function (e) { e.preventDefault(); attempt(); });
+  // Return / Enter submits even when a browser or password manager swallows the form submit
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); attempt(); }
+  });
+
+  // Show / hide password
+  var eye = vault.querySelector('.vault-eye');
+  if (eye) eye.addEventListener('click', function () {
+    var show = input.type === 'password';
+    input.type = show ? 'text' : 'password';
+    eye.setAttribute('aria-pressed', String(show));
+    eye.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    input.focus();
   });
 
   // Already let in on another case study? Open straight away.

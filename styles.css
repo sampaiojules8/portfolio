@@ -397,3 +397,13 @@ html.star-cursor, html.star-cursor * { cursor: none !important; }
 .prose section > h2 + * { margin-top: 0 !important; }
 .prose section > :last-child { margin-bottom: 0; }
 .real.centered.tall .shot img { max-height: 960px; }
+
+/* Password field with show/hide */
+.vault-field { position: relative; flex: 1 1 220px; min-width: 0; display: flex; }
+.vault-field input { flex: 1; width: 100%; padding-right: 52px !important; }
+.vault-eye { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); display: grid; place-items: center; cursor: pointer; transition: color .15s, background .15s; }
+.vault-eye:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.vault-eye svg { width: 20px; height: 20px; }
+.vault-eye .eye-shut { display: none; }
+.vault-eye[aria-pressed="true"] .eye-open { display: none; }
+.vault-eye[aria-pressed="true"] .eye-shut { display: block; }
